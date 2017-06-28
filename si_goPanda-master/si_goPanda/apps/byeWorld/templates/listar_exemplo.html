@@ -1,0 +1,42 @@
+{% extends 'base_byeWorld.html '%}
+
+{% block title %}Listar exemplo{% endblock title %}
+
+{% block content %}
+<div class="row-fluid">
+    <div class="span12">
+        <div class="grid simple ">
+            <div class="grid-title">
+                <h3>Lista de Exemplos</h3>
+            </div>
+            <div class="grid-body ">
+                <table class="table">
+                    <a aria-expanded="false" class="btn btn-primary btn-demo-space" href="/cadastrar_exemplo" style="background-color: #339933">Cadastrar Exemplo</a>
+                    <br><br>
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Atributo2</th>
+                            <th>Atributo3</th>
+                            <th>Deletar</th>
+                    </thead>
+                    <tbody>
+                        {% for objeto in exemplo_list %}
+                            <tr>
+                                <td><a href="/detalhar_exemplo/{{objeto.pk}}">{{ objeto.nome }}</a></td>
+                                <td>{{ objeto.atributo2 }}</td>
+                                <td>{{ objeto.atributo3 }}</td>
+                                <td>
+                                    <a href="/deletar_exemplo/{{objeto.pk}}" class="btn btn-primary btn-xs btn-mini" style = "background-color: #FF0707">
+                                    DELETAR
+                                    </a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

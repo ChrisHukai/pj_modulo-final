@@ -1,0 +1,42 @@
+{% extends 'base_helloWorld.html '%}
+
+{% block title %}Listar exemplo2{% endblock title %}
+
+{% block content %}
+<div class="row-fluid">
+    <div class="span12">
+        <div class="grid simple ">
+            <div class="grid-title">
+                <h3>Lista de Exemplo2s</h3>
+            </div>
+            <div class="grid-body ">
+                <table class="table">
+                    <a aria-expanded="false" class="btn btn-primary btn-demo-space" href="/helloWorld/cadastrar_exemplo2" style="background-color: #339933">Cadastrar Exemplo2</a>
+                    <br><br>
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Atributo2</th>
+                            <th>Atributo3</th>
+                            <th>Deletar</th>
+                    </thead>
+                    <tbody>
+                        {% for objeto in exemplo2_list %}
+                            <tr>
+                                <td><a href="/helloWorld/detalhar_exemplo2/{{objeto.pk}}">{{ objeto.nome }}</a></td>
+                                <td>{{ objeto.atributo2 }}</td>
+                                <td>{{ objeto.atributo3 }}</td>
+                                <td>
+                                    <a href="/helloWorld/deletar_exemplo2/{{objeto.pk}}" class="btn btn-primary btn-xs btn-mini" style = "background-color: #FF0707">
+                                    DELETAR
+                                    </a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

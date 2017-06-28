@@ -1,0 +1,10 @@
+{% extends 'base_helloWorld.html '%}
+
+{% block title %}Editar exemplo2{% endblock title %}
+
+{% block content %}
+<form action="" method="post">{% csrf_token %}
+    <p>O Objeto: "{{ object.nome }}" estará sendo deletado. Aperte confirmar para prosseguir.</p>
+    <input type="submit" value="Confirm"/>
+</form>
+{% endblock content %}

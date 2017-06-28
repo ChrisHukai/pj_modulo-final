@@ -1,0 +1,21 @@
+{% extends 'base_byeWorld.html '%}
+
+{% block title %}Cadastrar exemplo{% endblock title %}
+
+{% block content %}
+<form role='form' method='post' enctype='multipart/form-data'>{%csrf_token%}
+    {% for campo in form %}
+        <div class='form-group'>
+            <label class='form-label'>{{campo.label}}</label>
+            <span class='help'>{{campo.help_text}}</span>
+            <div class='controls'>
+                {{campo}}
+            </div>
+        </div>
+    {% endfor %}
+    <button class='btn btn-primary' method = 'post' type ='submit' style='background-color:#339933'>Cadastrar</button>
+    <a aria-expanded='false' class='btn btn-primary btn-demo-space' href='/listar_exemplo'style='background-color: #339933'>
+        Listar Exemplo
+    </a>
+</form>
+{% endblock content %}
